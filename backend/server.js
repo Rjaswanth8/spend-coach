@@ -14,7 +14,7 @@ app.use(
       "http://localhost:3000",
       "http://localhost:5173",
       "https://spend-coach.onrender.com",
-      "https://your-frontend-domain.com", // ← add your frontend URL here
+      "https://spend-coach.vercel.app", // ← add your frontend URL here
     ],
     credentials: true,
   }),
