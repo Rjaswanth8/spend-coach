@@ -1,25 +1,29 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const connectDB = require('./config/db');
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const connectDB = require("./config/db");
 
 // Connect to MongoDB
 connectDB();
 
 const app = express();
 
-// Middleware
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production'
-    ? ['https://spendcoach.app']
-    : ['http://localhost:3000', 'http://localhost:5173'],
-  credentials: true,
-}));
-app.use(express.json({ limit: '10mb' }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:5173",
+      "https://spend-coach.onrender.com",
+      "https://your-frontend-domain.com", // ← add your frontend URL here
+    ],
+    credentials: true,
+  }),
+);
+app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
 // Request logger (dev only)
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   app.use((req, _res, next) => {
     console.log(`${req.method} ${req.path}`);
     next();
@@ -27,23 +31,32 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Routes
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/transactions', require('./routes/transactions'));
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/transactions", require("./routes/transactions"));
 
 // Health check
-app.get('/api/health', (_req, res) => {
-  res.json({ success: true, message: 'SpendCoach API running 🚀', timestamp: new Date().toISOString() });
+app.get("/api/health", (_req, res) => {
+  res.json({
+    success: true,
+    message: "SpendCoach API running 🚀",
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // 404 handler
-app.use('*', (req, res) => {
-  res.status(404).json({ success: false, message: `Route ${req.originalUrl} not found.` });
+app.use("*", (req, res) => {
+  res
+    .status(404)
+    .json({ success: false, message: `Route ${req.originalUrl} not found.` });
 });
 
 // Global error handler
 app.use((err, _req, res, _next) => {
-  console.error('Unhandled error:', err);
-  res.status(500).json({ success: false, message: 'Something went wrong. Please try again.' });
+  console.error("Unhandled error:", err);
+  res.status(500).json({
+    success: false,
+    message: "Something went wrong. Please try again.",
+  });
 });
 
 const PORT = process.env.PORT || 5000;
