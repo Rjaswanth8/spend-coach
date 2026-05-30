@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green: #00c896;
+  --green-dark: #009e78;
+  --green-light: #e6faf5;
+  --green-mid: #b3efe0;
+  --orange: #ff6b35;
+  --orange-light: #fff0eb;
+  --navy: #0d1f1a;
+  --navy-mid: #1a3530;
+  --text: #0d1f1a;
+  --text-muted: #5a7a74;
+  --text-light: #96b5af;
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --surface-alt: #eef4f2;
+  --border: #d6e8e4;
+  --border-dark: #b2ccc8;
+  --danger: #e53e3e;
+  --danger-light: #fff5f5;
+  --warning: #ef9f27;
+  --warning-light: #fffbeb;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --shadow-sm:
+    0 1px 3px rgba(13, 31, 26, 0.08), 0 1px 2px rgba(13, 31, 26, 0.04);
+  --shadow-md:
+    0 4px 16px rgba(13, 31, 26, 0.1), 0 2px 4px rgba(13, 31, 26, 0.06);
+  --shadow-lg:
+    0 12px 40px rgba(13, 31, 26, 0.12), 0 4px 8px rgba(13, 31, 26, 0.06);
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  border: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-dark);
+  border-radius: 99px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-in {
+  animation: fadeIn 0.4s ease both;
+}
+.animate-slide {
+  animation: slideIn 0.3s ease both;
+}
+
+/* Utility classes */
+.text-green {
+  color: var(--green-dark);
+}
+.text-danger {
+  color: var(--danger);
+}
+.text-muted {
+  color: var(--text-muted);
+}
+.text-warning {
+  color: var(--warning);
+}
+.font-display {
+  font-family: var(--font-display);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.badge-green {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+.badge-orange {
+  background: var(--orange-light);
+  color: var(--orange);
+}
+.badge-red {
+  background: var(--danger-light);
+  color: var(--danger);
+}
+.badge-gray {
+  background: var(--surface-alt);
+  color: var(--text-muted);
+}

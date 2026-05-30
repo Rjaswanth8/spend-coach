@@ -1,0 +1,157 @@
+.transactions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.transactions-title {
+  font-size: 24px;
+  font-weight: 800;
+  font-family: var(--font-display);
+}
+
+.transactions-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.transactions-filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.transactions-search,
+.transactions-select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+
+.transactions-search {
+  flex: 1;
+  min-width: 220px;
+}
+
+.transactions-card {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.transactions-loader,
+.transactions-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 14px;
+  padding: 48px;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table thead {
+  background: var(--surface-alt);
+}
+
+.transactions-table th {
+  padding: 14px 16px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.transactions-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--surface-alt);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.merchant-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  justify-content: center;
+}
+
+.tx-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.merchant-name {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.merchant-note {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.cat-chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.amount-cell {
+  text-align: center;
+  font-weight: 700;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.delete-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px 8px 6px;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #ffe5e5;
+  padding-top: 6px;
+}
+
+.transactions-form-actions {
+  margin-top: 20px;
+}
+
+.save-tras {
+  margin-right: 10px;
+}
