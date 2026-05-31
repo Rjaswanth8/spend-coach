@@ -14,9 +14,12 @@ app.use(
       "http://localhost:3000",
       "http://localhost:5173",
       "https://spend-coach.onrender.com",
-      "https://spend-coach.vercel.app", // ← add your frontend URL here
+      "https://spend-coach.vercel.app", // ← add this
+      "https://spend-coach-git-main.vercel.app", // ← add preview URL too
     ],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
 app.use(express.json({ limit: "10mb" }));
